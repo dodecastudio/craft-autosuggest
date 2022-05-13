@@ -1,0 +1,15 @@
+{% include "_includes/forms/autosuggest" with {
+  id: name,
+  name: name,
+  value: value,
+  suggestions: suggestions,
+  suggestEnvVars: false,
+  suggestAliases: false,
+} only %}
+
+{# Ensure autosuggest drop-down isnt cropped by container #}
+{% css %}
+.content-pane {
+  overflow: visible !important;
+}
+{% endcss %}

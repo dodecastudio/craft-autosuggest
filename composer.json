@@ -1,0 +1,46 @@
+{
+  "name": "dodecastudio/craft-autocomplete",
+  "description": "A plain text field for Craft CMS that will suggest existing values from other entries saved in the same section.",
+  "type": "craft-plugin",
+  "version": "1.0.0-beta.1",
+  "license": "MIT",
+  "keywords": [
+    "craft",
+    "cms",
+    "craftcms",
+    "craft-plugin",
+    "autocomplete",
+    "field",
+    "fieldtype"
+  ],
+  "support": {
+    "source": "https://github.com/dodecastudio/craft-autocomplete",
+    "docs": "https://github.com/dodecastudio/craft-autocomplete/blob/main/README.md",
+    "issues": "https://github.com/dodecastudio/craft-autocomplete/issues"
+  },
+  "authors": [
+    {
+      "name": "Dodeca Studio",
+      "homepage": "https://dodeca.studio"
+    }
+  ],
+  "require": {
+    "craftcms/cms": "^3.0.0",
+    "treeware/plant": "^0.1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "dodecastudio\\autocomplete\\": "src/"
+    }
+  },
+  "extra": {
+    "treeware": {},
+    "name": "AutoComplete",
+    "handle": "auto-complete",
+    "developer": "Dodeca Studio",
+    "developerUrl": "https://dodeca.studio",
+    "documentationUrl": "https://github.com/dodecastudio/craft-autocomplete/blob/main/README.md",
+    "changelogUrl": "https://github.com/dodecastudio/craft-autocomplete/blob/main/CHANGELOG.md",
+    "class": "dodecastudio\\autocomplete\\AutoComplete"
+  }
+}
