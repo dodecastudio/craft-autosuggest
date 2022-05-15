@@ -1,10 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 256 256">
-  <defs>
-    <clipPath id="a">
-      <path fill="none" clip-rule="evenodd" d="M127.99 0L39.63 35.82 6.11 89.03l3.39 87.22 51.6 40.11L127.99 256l66.91-39.64 51.6-40.11 3.39-87.22-33.52-53.21L127.99 0z"/>
-    </clipPath>
-  </defs>
-  <g clip-path="url(#a)">
-    <path fill="#0b121f" d="M0 0h256v256H0z"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><g><path fill="#041220" d="M127.99 0 39.55 35.82 6 89.03l3.39 87.22 51.65 40.11L127.99 256l66.97-39.64 51.65-40.11L250 89.03l-33.55-53.21L127.99 0z"/><rect x="36" y="98" width="183" height="60" rx="12" stroke="#d8dfe6" stroke-width="6" fill="#fcfcfe"/><g><path stroke="#0092ff" stroke-width="4" stroke-linecap="round" d="M87 149h14"/><path stroke="#0092ff" stroke-width="4" stroke-linecap="round" d="M87 109h14"/><path stroke="#0092ff" stroke-width="4" stroke-linecap="round" d="M94 149v-40"/></g><circle fill="#0092ff" cx="51" cy="143" r="4"/><circle fill="#0092ff" cx="63" cy="143" r="4"/><circle fill="#0092ff" cx="75" cy="143" r="4"/></g></svg>
