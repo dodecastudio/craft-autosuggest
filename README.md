@@ -4,7 +4,7 @@
 
 <img src="src/icon.svg" width="128" height="128" />
 
-The Auto Complete field is a plain text field that will suggest existing values from other entries saved in the same section.
+The Auto Complete field is a plain text field that will suggest existing values from other entries saved in the same section. This can be useful for ensuring consistency between entries, without the overhead of using something more full-featured such as tags or categories.
 
 ## Requirements
 
