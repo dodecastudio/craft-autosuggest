@@ -33,7 +33,11 @@ Once an Auto Suggest field has been created and added to a section within Craft,
 
 The list will by default show up to a maximum of 200 suggestions. Results are filtered to include the most frequently occuring.
 
-## Settings
+### Field settings
+
+You can set some default suggestions for each Auto Suggest field. This will ensure some initial values are presented to CP users if there are not yeht any entries in a given section. It's also helpful for guiding users to enter specific values.
+
+## Plugin Settings
 
 Default settings can be overridden. Please see the `config.php` file for details.
 
