@@ -5,7 +5,7 @@
  * A fieldtype that allows you to select from existing values in the section.
  *
  * @link      https://dodeca.studio
- * @copyright Copyright (c) 2021 Dodeca Studio
+ * @copyright Copyright (c) 2022 Dodeca Studio
  */
 
 namespace dodecastudio\autocomplete\fields;
