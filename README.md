@@ -31,7 +31,7 @@ This may be helpful for creating consistency between entry fields, without the n
 
 ## Licence 🌳
 
-This package is [Treeware](https://treeware.earth). If you use it in production, then we ask that you [**buy the world a tree**](https://plant.treeware.earth/dodecastudio/craft-blurhash/).  
+This package is [Treeware](https://treeware.earth). If you use it in production, then we ask that you [**buy the world a tree**](https://plant.treeware.earth/dodecastudio/craft-autocomplete/).  
 And why not? By contributing to the Treeware forest you’ll be creating employment for local families and restoring wildlife habitats.
 
 If you've purchased trees through Ecologi, as part of the Treeware license, please let us know for a shout-out.
