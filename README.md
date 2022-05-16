@@ -27,7 +27,7 @@ Install the plugin as follows:
 
 ## Overview
 
-The Auto Complete field is a plain text field that will suggest existing values from other entries saved in the same section. For example:
+Once an Auto Complete field has been created and added to a section within Craft, it will appear when editing the entry. If there are other entries in that section, typing in it will suggest existing values. This plugin uses Craft's built-in autosuggest component. When installed, it'll look a bit like this:
 
 <img src="resources/img/preview.jpeg" width="294" height="205" />
 
