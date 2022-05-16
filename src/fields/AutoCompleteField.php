@@ -10,6 +10,8 @@
 
 namespace dodecastudio\autocomplete\fields;
 
+use dodecastudio\autocomplete\AutoComplete;
+
 use Craft;
 use craft\elements\Entry;
 use craft\base\ElementInterface;
@@ -125,7 +127,8 @@ class AutoCompleteField extends Field
             // Sort results by frequency, remove dupicates
             $filteredSuggestions = array_count_values($allSuggestions);
             arsort($filteredSuggestions);
-            $sortedSuggestions = array_slice(array_keys($filteredSuggestions), 0, 200, true);
+            // Limit to 200 suggestions
+            $sortedSuggestions = array_slice(array_keys($filteredSuggestions), 0, AutoComplete::getInstance()->getSettings()->maxSuggestions, true);
         }
 
         // Render the input template

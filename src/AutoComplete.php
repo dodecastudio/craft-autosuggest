@@ -8,6 +8,7 @@
 
 namespace dodecastudio\autocomplete;
 
+use dodecastudio\autocomplete\models\Settings;
 use dodecastudio\autocomplete\fields\AutoCompleteField;
 
 use Craft;
