@@ -4,6 +4,8 @@
 
 <img src="src/icon.svg" width="128" height="128" />
 
+The Auto Complete field is a plain text field that will suggest existing values from other entries saved in the same section.
+
 ## Requirements
 
 - Craft CMS 3.x
@@ -25,9 +27,15 @@ Install the plugin as follows:
 
 ## Overview
 
-The Auto Complete field is a plain text field that will suggest existing values from other entries saved in the same section.
+The Auto Complete field is a plain text field that will suggest existing values from other entries saved in the same section. For example:
 
-This may be helpful for creating consistency between entry fields, without the need for something more involved like tags or categories.
+<img src="resources/img/preview.svg" width="294" height="205" />
+
+The list will by default show up to a maximum of 200 suggestions. Results are filtered to include the most frequently occuring.
+
+## Settings
+
+Default settings can be overridden. Please see the `config.php` file for details.
 
 ## Licence 🌳
 
