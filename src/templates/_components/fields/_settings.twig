@@ -1,0 +1,12 @@
+{% import "_includes/forms" as forms %}
+
+{{ forms.textareaField( {
+    label: "Default suggestions"|t,
+    instructions: "These optional default values allow the field to be pre-populated with suggestions."|t,
+    placeholder: "Place each suggestion on a new line..."|t,
+    id: 'suggestionDefaults',
+    name: 'suggestionDefaults',
+    value: field['suggestionDefaults'],
+    class: 'code',
+    rows: 8
+}) }}

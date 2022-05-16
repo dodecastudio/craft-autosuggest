@@ -33,7 +33,7 @@ class AutoSuggestField extends Field
     // /**
     //  * @var string
     //  */
-    // public $limitToSubfolder = '';
+    public $suggestionDefaults = '';
 
     // Static Methods
     // =========================================================================
@@ -55,6 +55,10 @@ class AutoSuggestField extends Field
     public function rules ()
     {
         $rules = parent::rules();
+        $rules = array_merge($rules, [
+            ['suggestionDefaults', 'string'],
+            ['suggestionDefaults', 'default', 'value' => ''],
+        ]);
 
         return $rules;
     }
@@ -103,11 +107,20 @@ class AutoSuggestField extends Field
     public function getInputHtml ($value, ElementInterface $element = null): string
     {
 
-        $allSuggestions = [];
+        $entrySuggestions = [];
+        $defaultSuggestions = [];
         $siteId = $element->siteId;
         $sectionId = $element->sectionId;
         $id = Craft::$app->getView()->formatInputId($this->handle);
         $namespacedId = Craft::$app->getView()->namespaceInputId($id);
+
+        // Get default values
+        $defaults = trim($this->suggestionDefaults);
+        if (!empty($defaults)) {
+            $defaultSuggestions = preg_split("/\r\n|\n|\r/", $defaults);
+            // Remove any rogue empty items
+            $defaultSuggestions = array_filter($defaultSuggestions, 'strlen');
+        }
         
         if ($siteId and $sectionId) {
             // Fetch suggestions
@@ -120,16 +133,18 @@ class AutoSuggestField extends Field
             // Create array of results
             foreach($suggestionData as $suggestion) {
                 if (!empty($suggestion[$this->handle]) && $suggestion[$this->handle] != NULL) {
-                    $allSuggestions[] = $suggestion[$this->handle];
+                    $entrySuggestions[] = $suggestion[$this->handle];
                 }
             }
 
             // Sort results by frequency, remove dupicates
-            $filteredSuggestions = array_count_values($allSuggestions);
-            arsort($filteredSuggestions);
+            $filteredEntrySuggestions = array_count_values($entrySuggestions);
+            arsort($filteredEntrySuggestions);
             // Limit to 200 suggestions
-            $sortedSuggestions = array_slice(array_keys($filteredSuggestions), 0, AutoSuggest::getInstance()->getSettings()->maxSuggestions, true);
+            $sortedSuggestions = array_slice(array_keys($filteredEntrySuggestions), 0, AutoSuggest::getInstance()->getSettings()->maxSuggestions, true);
         }
+
+        $allSuggestions = array_values(array_unique(array_merge($sortedSuggestions, $defaultSuggestions)));
 
         // Render the input template
         return Craft::$app->getView()->renderTemplate(
@@ -143,7 +158,7 @@ class AutoSuggestField extends Field
                 'suggestions' => [
                   [
                     'label' => Craft::t('site', 'Existing values in this section'),
-                    'data' => $sortedSuggestions 
+                    'data' => $allSuggestions 
                   ]
                 ],
             ]
