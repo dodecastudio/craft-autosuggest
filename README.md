@@ -29,7 +29,7 @@ Install the plugin as follows:
 
 The Auto Complete field is a plain text field that will suggest existing values from other entries saved in the same section. For example:
 
-<img src="resources/img/preview.svg" width="294" height="205" />
+<img src="resources/img/preview.jpeg" width="294" height="205" />
 
 The list will by default show up to a maximum of 200 suggestions. Results are filtered to include the most frequently occuring.
 
