@@ -1,6 +1,6 @@
 <?php
 
-namespace dodecastudio\autocomplete\models;
+namespace dodecastudio\autosuggest\models;
 
 use craft\base\Model;
 

@@ -1,19 +1,19 @@
 <?php
 /**
- * AutoComplete plugin for Craft CMS 3.x
+ * AutoSuggest plugin for Craft CMS 3.x
  *
  * @link      https://dodeca.studio
  * @copyright Copyright (c) 2022 Dodeca Studio
  */
 
 /**
- * AutoComplete en Translation
+ * AutoSuggest en Translation
  *
  * @author    Dodeca Studio
- * @package   AutoComplete
+ * @package   AutoSuggest
  * @since     1.0.0
  */
 return [
-    'AutoComplete plugin loaded' => 'AutoComplete plugin loaded',
+    'AutoSuggest plugin loaded' => 'AutoSuggest plugin loaded',
     'Existing values in this section' => 'Existing values in this section',
 ];

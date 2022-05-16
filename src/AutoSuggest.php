@@ -1,15 +1,15 @@
 <?php
 /**
- * AutoComplete plugin for Craft CMS 3.x
+ * AutoSuggest plugin for Craft CMS 3.x
  *
  * @link      https://dodeca.studio
  * @copyright Copyright (c) 2022 Dodeca Studio
  */
 
-namespace dodecastudio\autocomplete;
+namespace dodecastudio\autosuggest;
 
-use dodecastudio\autocomplete\models\Settings;
-use dodecastudio\autocomplete\fields\AutoCompleteField;
+use dodecastudio\autosuggest\models\Settings;
+use dodecastudio\autosuggest\fields\AutoSuggestField;
 
 use Craft;
 use craft\base\Plugin;
@@ -21,17 +21,17 @@ use yii\base\Event;
 /**
  * 
  * @author    Dodeca Studio
- * @package   AutoComplete
+ * @package   AutoSuggest
  * @since     1.0.0
  *
  */
-class AutoComplete extends Plugin
+class AutoSuggest extends Plugin
 {
 
     // Static Properties
 
     /**
-     * @var AutoComplete
+     * @var AutoSuggest
      */
     public static $plugin;
 
@@ -63,13 +63,13 @@ class AutoComplete extends Plugin
             Fields::class,
             Fields::EVENT_REGISTER_FIELD_TYPES,
             function (RegisterComponentTypesEvent $event) {
-                $event->types[] = AutoCompleteField::class;
+                $event->types[] = AutoSuggestField::class;
             }
         );
 
         Craft::info(
             Craft::t(
-                'auto-complete',
+                'auto-suggest',
                 '{name} plugin loaded',
                 ['name' => $this->name]
             ),
