@@ -1,6 +1,6 @@
 <?php
 /**
- * AutoComplete Field plugin for Craft CMS 3.x
+ * AutoSuggest Field plugin for Craft CMS 4.x
  *
  * A fieldtype that allows you to select from existing values in the section.
  *
@@ -8,9 +8,9 @@
  * @copyright Copyright (c) 2022 Dodeca Studio
  */
 
-namespace dodecastudio\autocomplete\fields;
+namespace dodecastudio\autosuggest\fields;
 
-use dodecastudio\autocomplete\AutoComplete;
+use dodecastudio\autosuggest\AutoSuggest;
 
 use Craft;
 use craft\elements\Entry;
@@ -21,11 +21,11 @@ use yii\db\Schema;
 /**
  * 
  * @author    Dodeca Studio
- * @package   AutoComplete
+ * @package   AutoSuggest
  * @since     1.0.0
  *
  */
-class AutoCompleteField extends Field
+class AutoSuggestField extends Field
 {
     // Public Properties
     // =========================================================================
@@ -33,7 +33,7 @@ class AutoCompleteField extends Field
     // /**
     //  * @var string
     //  */
-    // public $limitToSubfolder = '';
+    public $suggestionDefaults = '';
 
     // Static Methods
     // =========================================================================
@@ -41,9 +41,9 @@ class AutoCompleteField extends Field
     /**
      * @inheritdoc
      */
-    public static function displayName (): string
+    public static function displayName () : string
     {
-        return Craft::t('auto-complete', 'Auto Complete');
+        return Craft::t('auto-suggest', 'Auto Suggest');
     }
 
     // Public Methods
@@ -52,9 +52,13 @@ class AutoCompleteField extends Field
     /**
      * @inheritdoc
      */
-    public function rules ()
+    public function rules () : array
     {
         $rules = parent::rules();
+        $rules = array_merge($rules, [
+            ['suggestionDefaults', 'string'],
+            ['suggestionDefaults', 'default', 'value' => ''],
+        ]);
 
         return $rules;
     }
@@ -62,7 +66,7 @@ class AutoCompleteField extends Field
     /**
      * @inheritdoc
      */
-    public function getContentColumnType (): string
+    public function getContentColumnType () : string
     {
         return Schema::TYPE_STRING;
     }
@@ -70,7 +74,7 @@ class AutoCompleteField extends Field
     /**
      * @inheritdoc
      */
-    public function normalizeValue ($value, ElementInterface $element = null)
+    public function normalizeValue($value, ElementInterface $element = null) : mixed
     {
         return $value;
     }
@@ -78,7 +82,7 @@ class AutoCompleteField extends Field
     /**
      * @inheritdoc
      */
-    public function serializeValue ($value, ElementInterface $element = null)
+    public function serializeValue ($value, ElementInterface $element = null) : mixed
     {
         return parent::serializeValue($value, $element);
     }
@@ -86,11 +90,11 @@ class AutoCompleteField extends Field
     /**
      * @inheritdoc
      */
-    public function getSettingsHtml ()
+    public function getSettingsHtml () : ?string
     {
         // Render the settings template
         return Craft::$app->getView()->renderTemplate(
-            'auto-complete/_components/fields/_settings',
+            'auto-suggest/_components/fields/_settings',
             [
                 'field' => $this,
             ]
@@ -100,14 +104,23 @@ class AutoCompleteField extends Field
     /**
      * @inheritdoc
      */
-    public function getInputHtml ($value, ElementInterface $element = null): string
+    public function getInputHtml ($value, ElementInterface $element = null) : string
     {
 
-        $allSuggestions = [];
+        $entrySuggestions = [];
+        $defaultSuggestions = [];
         $siteId = $element->siteId;
         $sectionId = $element->sectionId;
         $id = Craft::$app->getView()->formatInputId($this->handle);
         $namespacedId = Craft::$app->getView()->namespaceInputId($id);
+
+        // Get default values
+        $defaults = trim($this->suggestionDefaults);
+        if (!empty($defaults)) {
+            $defaultSuggestions = preg_split("/\r\n|\n|\r/", $defaults);
+            // Remove any rogue empty items
+            $defaultSuggestions = array_filter($defaultSuggestions, 'strlen');
+        }
         
         if ($siteId and $sectionId) {
             // Fetch suggestions
@@ -120,20 +133,22 @@ class AutoCompleteField extends Field
             // Create array of results
             foreach($suggestionData as $suggestion) {
                 if (!empty($suggestion[$this->handle]) && $suggestion[$this->handle] != NULL) {
-                    $allSuggestions[] = $suggestion[$this->handle];
+                    $entrySuggestions[] = $suggestion[$this->handle];
                 }
             }
 
             // Sort results by frequency, remove dupicates
-            $filteredSuggestions = array_count_values($allSuggestions);
-            arsort($filteredSuggestions);
+            $filteredEntrySuggestions = array_count_values($entrySuggestions);
+            arsort($filteredEntrySuggestions);
             // Limit to 200 suggestions
-            $sortedSuggestions = array_slice(array_keys($filteredSuggestions), 0, AutoComplete::getInstance()->getSettings()->maxSuggestions, true);
+            $sortedSuggestions = array_slice(array_keys($filteredEntrySuggestions), 0, AutoSuggest::getInstance()->getSettings()->maxSuggestions, true);
         }
+
+        $allSuggestions = array_values(array_unique(array_merge($sortedSuggestions, $defaultSuggestions)));
 
         // Render the input template
         return Craft::$app->getView()->renderTemplate(
-            'auto-complete/_components/fields/_input',
+            'auto-suggest/_components/fields/_input',
             [
                 'name' => $this->handle,
                 'value' => $value,
@@ -143,7 +158,7 @@ class AutoCompleteField extends Field
                 'suggestions' => [
                   [
                     'label' => Craft::t('site', 'Existing values in this section'),
-                    'data' => $sortedSuggestions 
+                    'data' => $allSuggestions 
                   ]
                 ],
             ]

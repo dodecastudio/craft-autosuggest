@@ -1,5 +1,5 @@
 {
-  "name": "dodecastudio/craft-autocomplete",
+  "name": "dodecastudio/craft-autosuggest",
   "description": "A plain text field for Craft CMS that will suggest existing values from other entries saved in the same section.",
   "type": "craft-plugin",
   "version": "1.0.0-beta.1",
@@ -9,14 +9,14 @@
     "cms",
     "craftcms",
     "craft-plugin",
-    "autocomplete",
+    "autosuggest",
     "field",
     "fieldtype"
   ],
   "support": {
-    "source": "https://github.com/dodecastudio/craft-autocomplete",
-    "docs": "https://github.com/dodecastudio/craft-autocomplete/blob/main/README.md",
-    "issues": "https://github.com/dodecastudio/craft-autocomplete/issues"
+    "source": "https://github.com/dodecastudio/craft-autosuggest",
+    "docs": "https://github.com/dodecastudio/craft-autosuggest/blob/main/README.md",
+    "issues": "https://github.com/dodecastudio/craft-autosuggest/issues"
   },
   "authors": [
     {
@@ -25,22 +25,22 @@
     }
   ],
   "require": {
-    "craftcms/cms": "^3.0.0",
+    "craftcms/cms": "^4.0.0-beta",
     "treeware/plant": "^0.1.0"
   },
   "autoload": {
     "psr-4": {
-      "dodecastudio\\autocomplete\\": "src/"
+      "dodecastudio\\autosuggest\\": "src/"
     }
   },
   "extra": {
     "treeware": {},
-    "name": "AutoComplete",
-    "handle": "auto-complete",
+    "name": "AutoSuggest",
+    "handle": "auto-suggest",
     "developer": "Dodeca Studio",
     "developerUrl": "https://dodeca.studio",
-    "documentationUrl": "https://github.com/dodecastudio/craft-autocomplete/blob/main/README.md",
-    "changelogUrl": "https://github.com/dodecastudio/craft-autocomplete/blob/main/CHANGELOG.md",
-    "class": "dodecastudio\\autocomplete\\AutoComplete"
+    "documentationUrl": "https://github.com/dodecastudio/craft-autosuggest/blob/main/README.md",
+    "changelogUrl": "https://github.com/dodecastudio/craft-autosuggest/blob/main/CHANGELOG.md",
+    "class": "dodecastudio\\autosuggest\\AutoSuggest"
   }
 }
