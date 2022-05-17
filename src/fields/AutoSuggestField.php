@@ -22,7 +22,7 @@ use yii\db\Schema;
  * 
  * @author    Dodeca Studio
  * @package   AutoSuggest
- * @since     1.0.0
+ * @since     2.0.0
  *
  */
 class AutoSuggestField extends Field

@@ -11,7 +11,7 @@
  *
  * @author    Dodeca Studio
  * @package   AutoSuggest
- * @since     1.0.0
+ * @since     2.0.0
  */
 return [
     "AutoSuggest plugin loaded" => "AutoSuggest plugin loaded",
