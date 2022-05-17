@@ -27,7 +27,7 @@ Install the plugin as follows:
 
 Once an Auto Suggest field has been created and added to a section within Craft, it will appear when editing the entry. If there are other entries in that section, typing in it will suggest existing values. This plugin uses Craft's built-in autosuggest component. When installed, it'll look a bit like this:
 
-<img src="resources/img/previw.jpeg" width="294" height="205" />
+<img src="resources/img/preview.jpeg" width="294" height="205" />
 
 The list will by default show up to a maximum of 200 suggestions. Results are filtered to include the most frequently occuring.
 
