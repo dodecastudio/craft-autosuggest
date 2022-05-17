@@ -21,7 +21,7 @@ Install the plugin as follows:
 
         composer require dodecastudio/craft-autosuggest
 
-3.  In the Control Panel, go to Settings → Plugins and click the “Install” button for Auto Suggest.
+3.  In the Control Panel, go to Settings → Plugins and click the “Install” button for AutoSuggest.
 
 ## Overview
 

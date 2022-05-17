@@ -1,15 +1,15 @@
 <?php
 /**
- * Auto Suggest fieldtype plugin for Craft CMS 4.x
+ * AutoSuggest fieldtype plugin for Craft CMS 4.x
  *
  * @link      https://dodeca.studio
  * @copyright Copyright (c) 2022 Dodeca Studio
  */
 
 /**
- * Auto Suggest fieldtype plugin config.php
+ * AutoSuggest fieldtype plugin config.php
  *
- * This file is a template for the Auto Suggest fieldtype settings.
+ * This file is a template for the AutoSuggest fieldtype settings.
  * 
  * To use it, copy it to 'craft/config/' and rename to 'auto-suggest.php'. Make any changes you wish to there.
  * 
