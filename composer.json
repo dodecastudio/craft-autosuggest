@@ -2,7 +2,7 @@
   "name": "dodecastudio/craft-autosuggest",
   "description": "A plain text field for Craft CMS that will suggest existing values from other entries saved in the same section.",
   "type": "craft-plugin",
-  "version": "1.0.0-beta.3",
+  "version": "1.0.0",
   "license": "MIT",
   "keywords": [
     "craft",
