@@ -7,7 +7,7 @@
  */
 
 /**
- * AutoSuggest en Translation
+ * AutoSuggest Translations
  *
  * @author    Dodeca Studio
  * @package   AutoSuggest
