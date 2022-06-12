@@ -37,7 +37,7 @@ You can set some default suggestions for each Auto Suggest field. This will ensu
 
 ## Plugin Settings
 
-Default settings can be overridden. Please see the `config.php` file for details.
+Default settings can be overridden. Please see the `autosuggest-config.php` file for details.
 
 ## Licence 🌳
 
