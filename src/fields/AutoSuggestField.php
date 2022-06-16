@@ -66,30 +66,6 @@ class AutoSuggestField extends Field
     /**
      * @inheritdoc
      */
-    public function getContentColumnType () : string
-    {
-        return Schema::TYPE_STRING;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function normalizeValue($value, ElementInterface $element = null) : mixed
-    {
-        return $value;
-    }
-
-    /**
-     * @inheritdoc
-     */
-    public function serializeValue ($value, ElementInterface $element = null) : mixed
-    {
-        return parent::serializeValue($value, $element);
-    }
-
-    /**
-     * @inheritdoc
-     */
     public function getSettingsHtml () : ?string
     {
         // Render the settings template
