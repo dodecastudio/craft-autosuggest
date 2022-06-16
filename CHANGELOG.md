@@ -1,7 +1,9 @@
 # AutoSuggest Changelog
 
-## 2.0.0-beta.1
+## 1.0.1
 
-### Added
+- Updated: Changed version number and composer.json file to better support Craft 3 and 4 across a single version.
+
+## 1.0.0
 
 - Initial release
